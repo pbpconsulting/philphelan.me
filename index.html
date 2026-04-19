@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calmcraft - Releases</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html" class="brand-link">
+        <img src="images/calmcraft-wordmark-greyletters.jpg" alt="calmcraft" class="wordmark">
+      </a>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link active">Releases</a>
+      <a href="who-we-are.html" class="nav-link">Who We Are</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+    </nav>
+
+    <div class="brand-mark-wrap">
+      <img src="images/calmcraft-logo-sage.png" alt="calmcraft logo" class="brand-mark">
+    </div>
+  </header>
+
+  <section class="hero hero-dark">
+    <div class="container hero-inner">
+      <h1>Releases</h1>
+      <p>Practical ideas, thoughtful releases, and work that doesn’t waste your time.</p>
+    </div>
+  </section>
+
+  <main class="container page-content">
+    <section class="release-carousel" aria-label="Release carousel">
+      <button class="carousel-arrow" id="prev-release" aria-label="Previous release">&#10094;</button>
+
+      <div class="release-panel">
+        <div class="release-cover-wrap">
+          <img id="release-cover" src="images/universe-overhyped-wellness-retreat.svg" alt="Release cover" class="release-cover">
+        </div>
+
+        <div class="release-details">
+          <h3 id="release-title">The Universe's Most Overhyped Wellness Retreat</h3>
+
+          <p id="release-blurb" class="release-blurb">
+            A satirical sci-fi trip into a place where everything works beautifully, which turns out to be exactly the problem.
+          </p>
+
+          <div class="button-grid">
+            <a id="sample-ebook-link" class="btn btn-primary" href="#" download>Download free sample eBook</a>
+            <a id="sample-audio-link" class="btn btn-secondary" href="#" download>Download free sample audiobook</a>
+            <a id="amazon-link" class="btn btn-primary" href="#" target="_blank" rel="noopener">Buy on Amazon</a>
+            <a id="audible-link" class="btn btn-secondary" href="#" target="_blank" rel="noopener">Listen on Audible</a>
+          </div>
+
+          <div class="snippet-block">
+            <h4>Snippets</h4>
+
+            <blockquote class="snippet" id="snippet-1">
+              “Wait, you look relaxed,” hissed the volunteer coordinator as if it were an infection.
+            </blockquote>
+
+            <blockquote class="snippet" id="snippet-2">
+              “The oddest part? Everything here works exactly as it says it will. It’s insidious.”
+            </blockquote>
+          </div>
+
+          <div class="related-block">
+            <h4>Related releases</h4>
+            <ul id="related-releases"></ul>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-arrow" id="next-release" aria-label="Next release">&#10095;</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© calmcraft</p>
+    </div>
+  </footer>
+
+  <script>
+    const releases = [
+      {
+        id: "wellness-retreat",
+        title: "The Universe's Most Overhyped Wellness Retreat",
+        cover: "images/universe-overhyped-wellness-retreat.svg",
+        blurb: "A satirical sci-fi trip into a place where everything works beautifully, which turns out to be exactly the problem.",
+        sampleEbook: "#",
+        sampleAudio: "#",
+        amazon: "https://www.amazon.com.au/dp/B0FKN4XPHY",
+        audible: "#",
+        snippets: [
+          "“Add quote no.1 here..... mayber something funny.... maybe not.",
+          "“add 2nd quote .... something more serious. maybe not again.”"
+        ],
+        related: [
+          { label: "Amazingly Average", href: "#" }
+        ]
+      },
+      {
+        id: "Amazingly-Average",
+        title: "Amazingly Average",
+        cover: "images/Amazingly-Average-FrontCover.png",
+        blurb: "A grounded, dry, honest book about ordinary life, impossible standards, and the relief of dropping the performance.",
+        sampleEbook: "#",
+        sampleAudio: "#",
+        amazon: "#",
+        audible: "#",
+        snippets: [
+          "You do not need to become extraordinary to become useful, peaceful, or decent.",
+          "A lot of suffering comes from trying to look impressive to people who barely remember your surname."
+        ],
+        related: [
+          { label: "The Universe's Most Overhyped Wellness Retreat", href: "#" }
+        ]
+      }
+    ];
+
+    let currentIndex = 0;
+
+    function renderRelease(index) {
+      const release = releases[index];
+
+      document.getElementById("release-cover").src = release.cover;
+      document.getElementById("release-cover").alt = release.title + " cover";
+      document.getElementById("release-title").textContent = release.title;
+      document.getElementById("release-blurb").textContent = release.blurb;
+
+      document.getElementById("sample-ebook-link").href = release.sampleEbook;
+      document.getElementById("sample-audio-link").href = release.sampleAudio;
+      document.getElementById("amazon-link").href = release.amazon;
+      document.getElementById("audible-link").href = release.audible;
+
+      document.getElementById("snippet-1").textContent = release.snippets[0] || "";
+      document.getElementById("snippet-2").textContent = release.snippets[1] || "";
+
+      const relatedList = document.getElementById("related-releases");
+      relatedList.innerHTML = "";
+
+      release.related.forEach(item => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = item.href;
+        a.textContent = item.label;
+        li.appendChild(a);
+        relatedList.appendChild(li);
+      });
+    }
+
+    document.getElementById("prev-release").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + releases.length) % releases.length;
+      renderRelease(currentIndex);
+    });
+
+    document.getElementById("next-release").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % releases.length;
+      renderRelease(currentIndex);
+    });
+
+    renderRelease(currentIndex);
+  </script>
+</body>
+</html>
