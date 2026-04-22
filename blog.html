@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Phil Phelan - Blog</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="site-header">
     <div class="brand">
       <a href="index.html" class="brand-link">
         <img src="images/mylogo-sage.svg" alt="Phil Phelan logo" class="brand-mark">
-        <img src="images/philphelan-wordmark-sage.png" alt="Phil Phelan" class="wordmark" style="width: 125%; max-width: none;">
+        <span class="brand-name">phil phelan</span>
       </a>
     </div>
 
@@ -25,19 +28,31 @@
   <section class="hero hero-dark">
     <div class="container hero-inner">
       <h1>Blogs</h1>
-      <p>Writing on AI, authoring, mental health, and mostly; just staying sane</p>
+      <p>Writing on AI, authoring, mental health, and simply staying sane</p>
     </div>
   </section>
 
   <main class="container page-content narrow">
-    <article class="blog-card">
-      <div class="blog-content">
-        <h2>Blog: 5 ways AI messes with your mind</h2>
-        <p>How artificial intelligence can distort our thinking, expectations, and reality.</p>
-        <a href="5-ways-ai-messes-with-your-mind.html" class="text-link">Read more</a>
-      </div>
-      <img src="images/ai-mind-illustration.jpg" alt="AI and mind illustration" class="blog-image">
-    </article>
+    <section class="blog-grid">
+      <article class="blog-card">
+        <img src="images/ai-mind-illustration.jpg" alt="AI and mind illustration" class="blog-image">
+        <div class="blog-content">
+          <h2>The Silent Rewrite - 5 ways AI messes with your mind</h2>
+          <p>How artificial intelligence can distort our thinking, expectations, and reality. And rewire us, silently.</p>
+          <a href="5-ways-ai-messes-with-your-mind.html" class="text-link">Read more</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <img src="images/ai-mind-illustration-old.jpg" alt="Coming soon placeholder image" class="blog-image">
+        <div class="blog-content">
+          <h2>Can AI be used to help our Mental Health?</h2>
+          <p>...coming soon.</p>
+          <a href="#coming-soon.html" class="text-link">Read more</a>
+        </div>
+      </article>
+
+    </section>
   </main>
 
   <footer class="site-footer">
