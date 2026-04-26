@@ -820,3 +820,27 @@ a {
 .kit-form-wrap form {
   width: 100%;
 }
+
+.header-contact-btn {
+  justify-self: end;
+  text-decoration: none;
+  background: var(--sage);
+  color: var(--text-dark);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.header-contact-btn:hover {
+  background: var(--sage-deep);
+}
+
+.blog-card img[src*="MHFA Badge"] {
+  width: 42%;
+  height: auto;
+  max-height: 115px;
+  object-fit: contain;
+  margin: 26px auto 18px;
+  display: block;
+  border-radius: 0;
+}
