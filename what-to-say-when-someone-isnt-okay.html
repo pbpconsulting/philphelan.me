@@ -325,5 +325,69 @@
       <p>© Phil Phelan 2026</p>
     </div>
   </footer>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  function openLightbox(src, altText) {
+    const existing = document.querySelector(".image-lightbox");
+    if (existing) existing.remove();
+
+    const lightbox = document.createElement("div");
+    lightbox.className = "image-lightbox";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = altText || "Enlarged image";
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "image-lightbox-close";
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", "Close enlarged image");
+    closeButton.innerHTML = "&times;";
+
+    lightbox.appendChild(closeButton);
+    lightbox.appendChild(img);
+    document.body.appendChild(lightbox);
+
+    function closeLightbox() {
+      lightbox.remove();
+      document.removeEventListener("keydown", escapeClose);
+    }
+
+    function escapeClose(event) {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+    }
+
+    closeButton.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", escapeClose);
+  }
+
+  document.querySelectorAll(".blog-post img").forEach((img) => {
+    img.classList.add("zoomable-image");
+    img.setAttribute("tabindex", "0");
+    img.setAttribute("role", "button");
+    img.setAttribute("aria-label", "Open image larger");
+
+    img.addEventListener("click", () => {
+      openLightbox(img.currentSrc || img.src, img.alt);
+    });
+
+    img.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLightbox(img.currentSrc || img.src, img.alt);
+      }
+    });
+  });
+});
+  </script>
 </body>
 </html>
