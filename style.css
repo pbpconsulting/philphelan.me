@@ -574,6 +574,12 @@ a {
   text-align: center;
 }
 
+.footer-name {
+  font-family: 'Comfortaa', Arial, sans-serif;
+  font-weight: 600;
+  color: var(--sage);
+}
+
 /* Responsive */
 @media (max-width: 980px) {
   .site-header {
@@ -1128,3 +1134,73 @@ a {
 .blog-content-link:focus .text-link {
   text-decoration: underline;
 }
+
+/* Final mobile header fix - contact stays small at top right */
+@media (max-width: 760px) {
+  .site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand contact"
+      "nav nav";
+    align-items: center;
+    justify-items: stretch;
+    gap: 12px;
+    min-height: auto;
+    padding: 12px 14px 14px;
+    text-align: left;
+  }
+
+  .brand {
+    grid-area: brand;
+    justify-self: start;
+    min-width: 0;
+  }
+
+  .brand-link {
+    gap: 9px;
+  }
+
+  .brand-name {
+    font-size: 1.45rem;
+    top: 4px;
+    white-space: nowrap;
+  }
+
+  .brand-mark {
+    height: 34px;
+    width: 34px;
+    top: 7px;
+  }
+
+  .header-contact-btn {
+    grid-area: contact;
+    justify-self: end;
+    align-self: center;
+    width: auto;
+    max-width: none;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .main-nav {
+    grid-area: nav;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+  }
+}
+
+/* Carousel can be swiped on touch devices */
+.release-carousel {
+  touch-action: pan-y;
+}
+

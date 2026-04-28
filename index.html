@@ -32,7 +32,7 @@
   <div class="container hero-inner">
     <h1>Welcome</h1>
     <p>Download free samples of my books,</p>
-    <p>or browse to my blogs using the above link</p>
+    <p>or browse to my blogs using links above</p>
   </div>
 </section>
 
@@ -78,7 +78,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© Phil Phelan 2026</p>
+      <p>© <span class="footer-name">phil phelan</span> 2026</p>
     </div>
   </footer>
 
@@ -272,11 +272,56 @@ function openLightbox(src, altText) {
   document.addEventListener("keydown", escapeClose);
 }
 
+
+function setupCarouselSwipe() {
+  const carousel = document.querySelector(".release-carousel");
+  if (!carousel) return;
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let justSwiped = false;
+
+  carousel.addEventListener("touchstart", (event) => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.screenX;
+    touchStartY = touch.screenY;
+  }, { passive: true });
+
+  carousel.addEventListener("touchend", (event) => {
+    const touch = event.changedTouches[0];
+    const deltaX = touch.screenX - touchStartX;
+    const deltaY = touch.screenY - touchStartY;
+
+    const isHorizontalSwipe = Math.abs(deltaX) > 55 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4;
+
+    if (!isHorizontalSwipe) return;
+
+    justSwiped = true;
+
+    if (deltaX < 0) {
+      currentIndex = (currentIndex + 1) % Books.length;
+    } else {
+      currentIndex = (currentIndex - 1 + Books.length) % Books.length;
+    }
+
+    renderRelease(currentIndex);
+
+    window.setTimeout(() => {
+      justSwiped = false;
+    }, 300);
+  }, { passive: true });
+
+  window.carouselJustSwiped = function () {
+    return justSwiped;
+  };
+}
+
 function setupImageZoom() {
   document.querySelectorAll(".release-cover").forEach((img) => {
     img.style.cursor = "zoom-in";
 
     img.addEventListener("click", () => {
+      if (window.carouselJustSwiped && window.carouselJustSwiped()) return;
       openLightbox(img.currentSrc || img.src, img.alt);
     });
 
@@ -302,6 +347,7 @@ document.getElementById("next-release").addEventListener("click", () => {
 renderDots();
 renderRelease(currentIndex);
 setupImageZoom();
+setupCarouselSwipe();
   </script>
 </body>
 </html>
