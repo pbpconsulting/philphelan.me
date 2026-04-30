@@ -335,6 +335,115 @@ a {
   margin-bottom: 10px;
 }
 
+.service-card--dark {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  border-color: transparent;
+}
+
+.service-card--dark h3 {
+  color: var(--sage);
+}
+
+.service-card--featured {
+  background: #8b7b6e;
+  color: var(--text-light);
+  border-color: transparent;
+}
+
+.service-card--featured h3 {
+  color: #f0e8e0;
+}
+
+.service-card--featured a {
+  color: #f0e8e0;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.service-card--featured a:hover {
+  text-decoration: underline;
+}
+
+.service-card--warm {
+  background: #8b7b6e;
+  color: var(--text-light);
+  border-color: transparent;
+}
+
+.service-card--warm h3 {
+  color: #f0e8e0;
+}
+
+.service-card--sage {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  border-color: transparent;
+}
+
+.service-card--sage h3 {
+  color: var(--sage);
+}
+
+.service-card-icon {
+  display: block;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-title-row h3 {
+  margin: 0;
+  flex: 1;
+}
+
+.value-card-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.value-card--cream { background: var(--bg-dark); color: var(--text-light); border-color: transparent; }
+.value-card--cream h3 { color: var(--sage); }
+
+.value-card--blue  { background: #8b7b6e; color: var(--text-light); border-color: transparent; }
+.value-card--blue h3  { color: #f0e8e0; }
+
+.value-card--sage  { background: #8b7b6e; color: var(--text-light); border-color: transparent; }
+.value-card--sage h3  { color: #f0e8e0; }
+
+.value-card--blush { background: var(--bg-dark); color: var(--text-light); border-color: transparent; }
+.value-card--blush h3 { color: var(--sage); }
+
+.service-card-example-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(169, 185, 159, 0.15);
+  color: var(--sage);
+  text-decoration: none;
+  border: 1px solid rgba(169, 185, 159, 0.4);
+  white-space: nowrap;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.service-card-example-btn:hover {
+  background: rgba(169, 185, 159, 0.3);
+  text-decoration: none;
+}
+
 /* Links */
 .text-link {
   text-decoration: none;
@@ -556,6 +665,13 @@ a {
 .cta-card {
   text-align: center;
   margin-top: 24px;
+  background: var(--sage);
+  border-color: transparent;
+}
+
+.cta-card h2,
+.cta-card p {
+  color: var(--text-dark);
 }
 
 .cta-card p {
