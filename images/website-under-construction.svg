@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc"><title id="title">Under Construction</title><desc id="desc">eShop coming soon</desc><rect x="0" y="0" width="1200" height="675" fill="#f4f2ee"/>
+        <rect x="70" y="70" width="1060" height="535" rx="38" fill="#3f3f42"/>
+        <rect x="150" y="385" width="900" height="95" rx="14" fill="#a9b99f" opacity="0.95"/>
+        <path d="M270 385 L330 480 M420 385 L480 480 M570 385 L630 480 M720 385 L780 480 M870 385 L930 480" stroke="#3f3f42" stroke-width="22" stroke-linecap="round" opacity="0.85"/>
+        <circle cx="250" cy="210" r="70" fill="#a9b99f"/>
+        <path d="M230 175 L280 220 L215 220 Z" fill="#3f3f42"/>
+        <rect x="210" y="260" width="85" height="160" rx="12" fill="#a9b99f"/>
+        <text x="370" y="230" font-family="Comfortaa, Arial, sans-serif" font-size="72" font-weight="700" fill="#f5f4f1">Under Construction</text>
+        <text x="370" y="310" font-family="Century Gothic, Arial, sans-serif" font-size="36" fill="#f5f4f1">eShop coming soon</text></svg>
